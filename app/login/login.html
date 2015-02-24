@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="angFire">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>AngularJS + Firebase App</title>
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+</head>
+<body ngController="LoginCtrl">
+<div class="container">
+  <div class="jumbotron" style="padding-bottom:0px;">
+    <h2>AngularJS & Firebase App!</h2>
+  </div>
+
+  <form class="form-signin" name="loginForm" role="form" ng-submit="login($event)">
+    <div class="form-group" ng-class="{ 'has-error': loginForm.email.$invalid }">
+      <label>Email</label>
+        <input type="email" name="email" class="form-control" ng-model="user.email">
+        <p class="help-block" ng-show="loginForm.email.$invalid">Enter a valid email.</p>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error': loginForm.password.$invalid }">
+      <label>Password</label>
+        <input type="password" name="password" class="form-control" ng-model="user.password" ng-minlength="4">
+        <p class="help-block" ng-show="loginForm.password.$error.minlength">Min password length is 4 characters.</p>
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-disabled="!user.email || !user.password">Login</button>
+
+    <label class="checkbox">
+      <a href="#/register"> Register</a>
+    </label>
+  </form>
+
+
+</div>
+</body>
+</html>
